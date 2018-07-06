@@ -2,5 +2,9 @@
     <string name="app_name">GitHub Users</string>
     <string name="string_user">Users</string>
     <string name="string_mock_name">mojomobo</string>
+    <string name="string_mock_location">San Francisco</string>
+    <string name="string_mock_blog">http://google.com</string>
     <string name="string_mock_review">staff</string>
+    <string name="string_bio">Programmer</string>
+    <string name="appscroll" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 </resources>

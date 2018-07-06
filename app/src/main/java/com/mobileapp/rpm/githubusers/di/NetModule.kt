@@ -26,7 +26,6 @@ class NetModule(private val mApplication: Application) {
     @Provides
     @Singleton
     fun provideGson(): Gson = GsonBuilder().setLenient().create()
-    //return GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create()
 
     @Provides
     @Singleton
@@ -39,7 +38,6 @@ class NetModule(private val mApplication: Application) {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
             httpClient.addInterceptor(logging)
-            // httpClient.addInterceptor(ChuckInterceptor(mApplication))
         }
         return httpClient.build()
     }

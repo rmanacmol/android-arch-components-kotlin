@@ -1,6 +1,8 @@
 package com.mobileapp.rpm.githubusers.di
 
 import android.app.Application
+import timber.log.BuildConfig
+import timber.log.Timber
 
 class GithubUserApplication : Application() {
 
@@ -10,6 +12,11 @@ class GithubUserApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+
         initializeDagger()
     }
 

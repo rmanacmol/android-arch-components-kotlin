@@ -5,7 +5,6 @@
 
         <import type="android.view.View" />
 
-
     </data>
 
     <LinearLayout
