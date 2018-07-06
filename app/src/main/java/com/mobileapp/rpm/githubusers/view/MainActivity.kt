@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         populateUser()
-
         swipeRefreshLayout.setOnRefreshListener { populateUser() }
 
     }
@@ -34,14 +33,22 @@ class MainActivity : AppCompatActivity() {
         viewModel?.getUser()?.observe(this,
                 Observer { userList ->
                     if (userList != null) {
-                        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-                        rv.adapter = UserAdapter(userList as ArrayList<User>)
-
+                        viewModel?.addUserToLocal(userList)
+                        callDataFromLocal()
                     } else {
-                        Toast.makeText(this, "Failed Fetching Data", Toast.LENGTH_LONG).show()
+                        callDataFromLocal()
+                        Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
                     }
                     swipeRefreshLayout.isRefreshing = false
                 })
+    }
+
+    fun callDataFromLocal() {
+
+        viewModel?.getUserFromLocal()?.observe(this, Observer { userList ->
+            rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+            rv.adapter = UserAdapter(userList as ArrayList<User>)
+        })
     }
 
 }

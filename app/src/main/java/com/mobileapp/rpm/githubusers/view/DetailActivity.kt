@@ -8,6 +8,7 @@ import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.mobileapp.rpm.githubusers.R
 import com.mobileapp.rpm.githubusers.viewmodel.DetailViewModel
@@ -45,30 +46,33 @@ class DetailActivity : AppCompatActivity() {
         viewModel?.getUserDetail(this.intent.getStringExtra("username"))?.observe(this,
                 Observer { userDetail ->
 
-                    if (userDetail?.site_admin!!) {
-                        siteadmin.visibility = View.VISIBLE
+                    if(userDetail != null) {
+                        if (userDetail.site_admin) {
+                            siteadmin.visibility = View.VISIBLE
+                        } else {
+                            siteadmin.visibility = View.GONE
+                        }
+                        tvName.text = userDetail.name
+                        login.text = userDetail.login
+                        location.text = userDetail.location
+                        blog.text = userDetail.blog
+                        tvBio.text = userDetail.bio
+
+                        Glide.with(this).load(userDetail.avatar_url).preload();
+                        Glide.with(this).load(userDetail.avatar_url).into(profile_image)
+
+                        blog.setOnClickListener {
+                            customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
+                        }
+                        progress.visibility = View.GONE
+                        lnDetail.visibility = View.VISIBLE
+
                     } else {
-                        siteadmin.visibility = View.GONE
+                        Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
+                        progress.visibility = View.GONE
+                        lnDetail.visibility = View.GONE
+                        finish()
                     }
-
-                    tvName.text = userDetail.name
-                    login.text = userDetail.login
-                    location.text = userDetail.location
-                    blog.text = userDetail.blog
-                    tvBio.text = userDetail.bio
-
-                    Glide.with(this).load(userDetail.avatar_url).preload();
-                    Glide.with(this).load(userDetail.avatar_url).into(profile_image)
-
-                    blog.setOnClickListener {
-                        customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
-                    }
-
-                    progress.visibility = View.GONE
-                    lnDetail.visibility = View.VISIBLE
-
                 })
     }
-
-
 }

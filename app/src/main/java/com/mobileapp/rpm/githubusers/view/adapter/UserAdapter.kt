@@ -13,12 +13,18 @@ import com.mobileapp.rpm.githubusers.databinding.ItemRowHeaderBinding
 import com.mobileapp.rpm.githubusers.databinding.ItemRowUserBinding
 import com.mobileapp.rpm.githubusers.model.User
 import com.mobileapp.rpm.githubusers.view.DetailActivity
+import java.util.*
 
 
-class UserAdapter(val userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UViewHolder>() {
+class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UViewHolder>() {
+
+    private val users: MutableList<User>
 
     init {
-        userList.add(0, User("header"))
+        this.users = ArrayList()
+        this.users.clear()
+        this.users.add(0, User( "Header"))
+        this.users.addAll(userList)
     }
 
     companion object {
@@ -49,8 +55,8 @@ class UserAdapter(val userList: ArrayList<User>) : RecyclerView.Adapter<UserAdap
             HEADER_1 -> holder.itemRowHeaderBinding?.tvHeader?.text = holder.itemView.context.getString(R.string.string_user)
 
             USER -> {
-                holder.bindItem(userList[position])
-                val user = userList[position]
+                holder.bindItem(users[position])
+                val user = users[position]
 
                 holder.itemRowUserBinding?.login?.text = user.login
 
@@ -74,7 +80,7 @@ class UserAdapter(val userList: ArrayList<User>) : RecyclerView.Adapter<UserAdap
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return users.size
     }
 
     inner class UViewHolder : RecyclerView.ViewHolder {

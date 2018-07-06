@@ -1,8 +1,8 @@
 package com.mobileapp.rpm.githubusers.data.repository
 
 import android.arch.lifecycle.MutableLiveData
-import android.util.Log
 import com.mobileapp.rpm.githubusers.data.local.RoomData
+import com.mobileapp.rpm.githubusers.data.local.table.UserEntity
 import com.mobileapp.rpm.githubusers.data.remote.RemoteData
 import com.mobileapp.rpm.githubusers.model.User
 import com.mobileapp.rpm.githubusers.model.UserDetail
@@ -51,5 +51,76 @@ class Repository
                 })
         allCompositeDisposable.add(disposable)
         return mutableLiveData
+    }
+
+    //LOCAL
+    override fun addUserToLocal(listUser: List<User>) {
+        val userList = ArrayList<UserEntity>()
+        listUser.forEach {
+            userList.add(UserEntity(it.id,
+                    it.login,
+                    it.id,
+                    it.node_id,
+                    it.avatar_url,
+                    it.gravatar_id,
+                    it.url,
+                    it.html_url,
+                    it.followers_url,
+                    it.following_url,
+                    it.gists_url,
+                    it.starred_url,
+                    it.subscriptions_url,
+                    it.organizations_url,
+                    it.repos_url,
+                    it.events_url,
+                    it.received_events_url,
+                    it.type,
+                    it.site_admin
+            ))
+        }
+        roomData.userDao().insertAll(userList)
+    }
+
+    override fun getUserLocal(): MutableLiveData<List<User>> {
+
+        val mutableLiveData = MutableLiveData<List<User>>()
+
+        val disposable = roomData.userDao().selectAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ userList ->
+                    mutableLiveData.value = transform(userList)
+                }, { t: Throwable? -> t?.printStackTrace() })
+        allCompositeDisposable.add(disposable)
+
+
+        return mutableLiveData
+    }
+
+    private fun transform(users: List<UserEntity>): ArrayList<User> {
+        val userList = ArrayList<User>()
+        users.forEach {
+            userList.add(
+                    User(it.login,
+                            it.id,
+                            it.node_id,
+                            it.avatar_url,
+                            it.gravatar_id,
+                            it.url,
+                            it.html_url,
+                            it.followers_url,
+                            it.following_url,
+                            it.gists_url,
+                            it.starred_url,
+                            it.subscriptions_url,
+                            it.organizations_url,
+                            it.repos_url,
+                            it.events_url,
+                            it.received_events_url,
+                            it.type,
+                            it.site_admin
+                    ))
+        }
+        return userList
     }
 }
