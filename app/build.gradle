@@ -15,6 +15,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resValue "string", "base_service_url", "https://api.github.com/"
     }
+    dataBinding {
+        enabled = true
+    }
     flavorDimensions "staging"
     productFlavors {
         staging {
@@ -70,4 +73,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
 
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

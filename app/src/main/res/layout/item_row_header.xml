@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvHeader"
+            style="@style/Heading_4"
+            android:layout_marginStart="10dp"
+            android:alpha="0.8"
+            android:padding="15dp"
+            android:text="@string/string_user" />
+
+    </LinearLayout>
+
+</layout>

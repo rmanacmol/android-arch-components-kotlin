@@ -8,4 +8,47 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Heading_1">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Heading_2" parent="Heading_1">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="Heading_3" parent="Heading_2">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Heading_4" parent="Heading_3">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="Heading_5" parent="Heading_2">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Heading_6" parent="Heading_2">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Subscript_1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="Subscript_2" parent="Subscript_1">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
 </resources>
