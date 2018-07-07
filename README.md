@@ -3,14 +3,17 @@
 --------------------------------------------------
 
 Programming Language
+
 * [Kotlin](https://kotlinlang.org/)
 
 This project is build using Android Architecture Components
+
 * [Room](https://developer.android.com/topic/libraries/architecture/room.html)
 * [ViewModels](https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html)
 * [LiveData](https://developer.android.com/reference/android/arch/lifecycle/LiveData.html)
 
 Third Party Libraries
+
 * [Dagger2](https://github.com/google/dagger)
 * [RxJava](https://github.com/ReactiveX/RxJava)
 * [Retrofit](https://github.com/square/retrofit)
@@ -19,17 +22,6 @@ Third Party Libraries
 * [Timber](https://github.com/JakeWharton/timber)
 
 ![alt text](https://bitbucket.org/rmanacmol/assets/raw/06fbb8a054d9236d7bb1d586cb5235be7728dbe3/mvvm.png)
-
-Screenshots
-
-User List
-![alt text](https://bitbucket.org/rmanacmol/assets/raw/773e931b14c1896a6d59af44ea4c0984190385f4/1.png)
-
-User Detail
-![alt text](https://bitbucket.org/rmanacmol/assets/raw/773e931b14c1896a6d59af44ea4c0984190385f4/2.png)
-
-User Blog
-![alt text](https://bitbucket.org/rmanacmol/assets/raw/773e931b14c1896a6d59af44ea4c0984190385f4/3.png)
 
 --------------------------------------------------
 
