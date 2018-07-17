@@ -18,14 +18,13 @@ android {
     dataBinding {
         enabled = true
     }
-    flavorDimensions "staging"
+
+    flavorDimensions "default"
     productFlavors {
         staging {
-            dimension "staging"
             resValue "string", "base_service_url", "https://api.github.com/"
         }
         local {
-            dimension "staging"
             resValue "string", "base_service_url", "https://api.github.com/"
         }
     }

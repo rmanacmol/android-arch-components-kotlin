@@ -21,7 +21,7 @@ Third Party Libraries
 * [Glide](https://github.com/bumptech/glide)
 * [Timber](https://github.com/JakeWharton/timber)
 
-![alt text](https://bitbucket.org/rmanacmol/assets/raw/06fbb8a054d9236d7bb1d586cb5235be7728dbe3/mvvm.png)
+![alt text](https://bitbucket.org/rmanacmol/assets/raw/d7248d94100579b3b4390fe2d5b65efbaf173fc4/mvvm2.png)
 
 --------------------------------------------------
 
