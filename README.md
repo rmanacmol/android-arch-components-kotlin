@@ -1,18 +1,13 @@
-# Github User - Android
-
+# MVVM ~ Android Architecture Components ~ Kotlin
 --------------------------------------------------
 
-Programming Language
-
 * [Kotlin](https://kotlinlang.org/)
-
-This project is build using Android Architecture Components
-
 * [Room](https://developer.android.com/topic/libraries/architecture/room.html)
 * [ViewModels](https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html)
 * [LiveData](https://developer.android.com/reference/android/arch/lifecycle/LiveData.html)
 
-Third Party Libraries
+Other libraries used
+--------------------------
 
 * [Dagger2](https://github.com/google/dagger)
 * [RxJava](https://github.com/ReactiveX/RxJava)
@@ -21,9 +16,27 @@ Third Party Libraries
 * [Glide](https://github.com/bumptech/glide)
 * [Timber](https://github.com/JakeWharton/timber)
 
-![alt text](https://bitbucket.org/rmanacmol/assets/raw/d7248d94100579b3b4390fe2d5b65efbaf173fc4/mvvm2.png)
+Architecture Components
+--------------------------
+![alt text](https://bitbucket.org/rmanacmol/assets/raw/f9e5c2676b7bf9e01cdced5ea656c4c6bc9d57b2/aac.png)
 
---------------------------------------------------
+Screenshot
+--------------------------
+![](https://bitbucket.org/rmanacmol/assets/raw/539445e1d01f83f8eb81f89b505fd7d0ffee558c/mvmm-s.png)
+
+Contribution
+--------------------------
+
+Feel free add feature or report any issues, I will be glad to improve it with your help.
+
+Developed By
+------------
+
+* Renz Manacmol ~ manacmol@gmail.com
+
+
+License
+-------
 
 Copyright 2018 Renz Manacmol
 
