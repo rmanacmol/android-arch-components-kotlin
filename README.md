@@ -1,5 +1,7 @@
-# MVVM ~ Android Architecture Components ~ Kotlin  [![CircleCI](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin.svg?style=svg)](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin)
---------------------------------------------------
+# MVVM ~ Android Architecture Components ~ Kotlin  
+--------------------------
+[![CircleCI](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin.svg?style=svg)](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin)
+[![Build Status](https://travis-ci.com/rmanacmol/android-arch-components-kotlin.svg?branch=master)](https://travis-ci.com/rmanacmol/android-arch-components-kotlin)
 
 * [Kotlin](https://kotlinlang.org/)
 * [Room](https://developer.android.com/topic/libraries/architecture/room.html)
