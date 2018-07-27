@@ -1,4 +1,4 @@
-# MVVM ~ Android Architecture Components ~ Kotlin
+# MVVM ~ Android Architecture Components ~ Kotlin  [![CircleCI](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin.svg?style=svg)](https://circleci.com/gh/rmanacmol/android-arch-components-kotlin)
 --------------------------------------------------
 
 * [Kotlin](https://kotlinlang.org/)
