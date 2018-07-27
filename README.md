@@ -27,7 +27,7 @@ Screenshot
 Contribution
 --------------------------
 
-Feel free add feature or report any issues, I will be glad to improve it with your help.
+Feel free to add feature or report any issues, I will be glad to improve it with your help.
 
 Developed By
 ------------
