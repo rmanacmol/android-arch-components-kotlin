@@ -33,7 +33,6 @@ import kotlinx.android.synthetic.main.activity_detail.*
 class DetailActivity : AppCompatActivity() {
 
     private var viewModel: DetailViewModel? = null
-
     var builder: CustomTabsIntent.Builder? = null
     var customTabsIntent: CustomTabsIntent? = null
 
@@ -41,7 +40,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
-
         builder = CustomTabsIntent.Builder()
         builder?.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
         customTabsIntent = builder?.build()
@@ -55,14 +53,11 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun populateUserDetail() {
-
-        progress.visibility = View.VISIBLE
-        lnDetail.visibility = View.GONE
-
+        progress(View.VISIBLE, View.GONE)
         viewModel?.getUserDetail(this.intent.getStringExtra("username"))?.observe(this,
                 Observer { userDetail ->
 
-                    if(userDetail != null) {
+                    if (userDetail != null) {
                         if (userDetail.site_admin) {
                             siteadmin.visibility = View.VISIBLE
                         } else {
@@ -80,15 +75,21 @@ class DetailActivity : AppCompatActivity() {
                         blog.setOnClickListener {
                             customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
                         }
-                        progress.visibility = View.GONE
-                        lnDetail.visibility = View.VISIBLE
+                        progress(View.GONE, View.VISIBLE)
 
                     } else {
                         Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
-                        progress.visibility = View.GONE
-                        lnDetail.visibility = View.GONE
+                        progress(View.GONE, View.GONE)
                         finish()
                     }
                 })
+
     }
+
+    fun progress(progressView: Int, detailView: Int) {
+        progress.visibility = progressView
+        lnDetail.visibility = detailView
+
+    }
+
 }

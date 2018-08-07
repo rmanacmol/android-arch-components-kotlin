@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
         populateUser()
         swipeRefreshLayout.setOnRefreshListener { populateUser() }
 
@@ -60,14 +58,14 @@ class MainActivity : AppCompatActivity() {
                     }
                     swipeRefreshLayout.isRefreshing = false
                 })
+
     }
 
     fun callDataFromLocal() {
-
         viewModel?.getUserFromLocal()?.observe(this, Observer { userList ->
             rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
             rv.adapter = UserAdapter(userList as ArrayList<User>)
         })
-    }
 
+    }
 }

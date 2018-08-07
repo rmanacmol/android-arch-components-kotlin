@@ -39,13 +39,15 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
     init {
         this.users = ArrayList()
         this.users.clear()
-        this.users.add(0, User( "Header"))
+        this.users.add(0, User("Header"))
         this.users.addAll(userList)
+
     }
 
     companion object {
         private val HEADER_1 = 0
         private val USER = 1
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UViewHolder {
@@ -63,6 +65,7 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
             }
         }
         return UViewHolder(binding as ItemRowHeaderBinding)
+
     }
 
     override fun onBindViewHolder(holder: UserAdapter.UViewHolder, position: Int) {
@@ -90,9 +93,9 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
                     i.putExtra("username", user.login)
                     holder.itemView.context.startActivity(i)
                 }
-
             }
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -116,6 +119,7 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
             itemRowUserBinding?.model = user
             itemRowUserBinding?.executePendingBindings()
         }
+
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -124,5 +128,6 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
         } else {
             USER
         }
+
     }
 }

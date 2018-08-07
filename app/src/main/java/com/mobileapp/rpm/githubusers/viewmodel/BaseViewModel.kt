@@ -38,6 +38,7 @@ open class BaseViewModel : ViewModel() {
     override fun onCleared() {
         unSubscribeViewModel()
         super.onCleared()
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -46,6 +47,7 @@ open class BaseViewModel : ViewModel() {
             compositeDisposable.addAll(disposable)
         }
         compositeDisposable.clear()
+
     }
 
 }

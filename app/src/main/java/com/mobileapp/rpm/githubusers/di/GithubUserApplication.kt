@@ -28,12 +28,11 @@ class GithubUserApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
         initializeDagger()
+
     }
 
     private fun initializeDagger() {
@@ -41,5 +40,7 @@ class GithubUserApplication : Application() {
                 .appModule(AppModule(this))
                 .roomModule(RoomModule())
                 .netModule(NetModule(this)).build()
+
     }
+
 }

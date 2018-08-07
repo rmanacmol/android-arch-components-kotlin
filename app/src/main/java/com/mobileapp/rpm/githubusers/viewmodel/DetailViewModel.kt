@@ -23,6 +23,7 @@ class DetailViewModel : BaseViewModel() {
 
     fun getUserDetail(login: String): LiveData<UserDetail>? {
         return repository.getUserDetail(login)
+
     }
 
 }

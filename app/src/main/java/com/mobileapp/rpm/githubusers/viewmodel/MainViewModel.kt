@@ -36,6 +36,7 @@ class MainViewModel : BaseViewModel() {
 
     fun getUser(): LiveData<List<User>>? {
         return repository.getUser()
+
     }
 
     fun addUserToLocal(user: List<User>) {
@@ -56,6 +57,7 @@ class MainViewModel : BaseViewModel() {
                         Timber.i("DataSource hasn't been populated")
                     }
                 })
+
     }
 
     fun getUserFromLocal(): LiveData<List<User>>? {
@@ -64,6 +66,7 @@ class MainViewModel : BaseViewModel() {
             liveData = repository.getUserLocal()
         }
         return liveData
+
     }
 
 }

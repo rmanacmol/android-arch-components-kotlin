@@ -37,4 +37,5 @@ data class User(
         var site_admin: Boolean = false
 ) {
     constructor(login: String) : this()
+
 }
