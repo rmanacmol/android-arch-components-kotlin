@@ -35,7 +35,4 @@ data class User(
         var received_events_url: String = "",
         var type: String = "",
         var site_admin: Boolean = false
-) {
-    constructor(login: String) : this()
-
-}
+)
