@@ -80,7 +80,8 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
                 holder.itemRowUserBinding?.login?.text = user.login
 
                 Glide.with(holder.itemView.context).load(user.avatar_url).preload();
-                Glide.with(holder.itemView.context).load(user.avatar_url).into(holder.itemRowUserBinding?.avatar)
+                Glide.with(holder.itemView.context).load(user.avatar_url).into(holder.itemRowUserBinding?.avatar!!)
+
 
                 if (user.site_admin) {
                     holder.itemRowUserBinding?.siteadmin?.visibility = View.VISIBLE
