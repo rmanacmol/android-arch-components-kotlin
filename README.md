@@ -34,7 +34,7 @@ Feel free to add feature or report any issues, I will be glad to improve it with
 Developed By
 ------------
 
-* Renz Manacmol ~ manacmol@gmail.com
+* Renz Manacmol
 
 
 License
