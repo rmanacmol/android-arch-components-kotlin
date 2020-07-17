@@ -16,8 +16,8 @@
 
 package com.mobileapp.rpm.githubusers.data.local.table
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.mobileapp.rpm.githubusers.data.local.RoomContract
 
 @Entity(tableName = RoomContract.table_user)

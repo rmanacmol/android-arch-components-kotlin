@@ -16,11 +16,11 @@
 
 package com.mobileapp.rpm.githubusers.view
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.mobileapp.rpm.githubusers.R
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     if (userList != null) {
                         viewModel?.addUserToLocal(userList)
 
-                        rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+                        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
                         rv.adapter = UserAdapter(userList as ArrayList<User>)
 
                     } else {
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
     fun callDataFromLocal() {
         viewModel?.getUserFromLocal()?.observe(this, Observer { userList ->
-            rv.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+            rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
             rv.adapter = UserAdapter(userList as ArrayList<User>)
         })
 

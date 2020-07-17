@@ -34,7 +34,7 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/login"
                 style="@style/Heading_5"
                 android:layout_marginEnd="15dp"
@@ -42,7 +42,7 @@
                 android:layout_marginTop="5dp"
                 tool:text="@string/string_mock_name" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/siteadmin"
                 style="@style/Subscript_1"
                 android:layout_marginEnd="15dp"

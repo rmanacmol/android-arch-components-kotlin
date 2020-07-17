@@ -17,9 +17,9 @@
 package com.mobileapp.rpm.githubusers.view.adapter
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +32,7 @@ import com.mobileapp.rpm.githubusers.view.DetailActivity
 import java.util.*
 
 
-class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UViewHolder>() {
+class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.RecyclerView.Adapter<UserAdapter.UViewHolder>() {
 
     private val users: MutableList<User>
 
@@ -103,7 +103,7 @@ class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.
         return users.size
     }
 
-    inner class UViewHolder : RecyclerView.ViewHolder {
+    inner class UViewHolder : androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
         var itemRowUserBinding: ItemRowUserBinding? = null
         var itemRowHeaderBinding: ItemRowHeaderBinding? = null

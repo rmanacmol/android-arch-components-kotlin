@@ -16,9 +16,9 @@
 
 package com.mobileapp.rpm.githubusers.viewmodel
 
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.OnLifecycleEvent
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
 import com.mobileapp.rpm.githubusers.data.repository.Repository
 import com.mobileapp.rpm.githubusers.di.GithubUserApplication
 import io.reactivex.disposables.CompositeDisposable

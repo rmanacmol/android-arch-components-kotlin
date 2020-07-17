@@ -16,7 +16,7 @@
 
 package com.mobileapp.rpm.githubusers.data.repository
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mobileapp.rpm.githubusers.model.User
 import com.mobileapp.rpm.githubusers.model.UserDetail
 

@@ -6,5 +6,4 @@
     <string name="string_mock_blog">http://google.com</string>
     <string name="string_mock_review">staff</string>
     <string name="string_bio">Programmer</string>
-    <string name="appscroll" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 </resources>

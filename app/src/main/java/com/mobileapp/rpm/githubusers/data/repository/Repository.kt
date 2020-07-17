@@ -16,7 +16,7 @@
 
 package com.mobileapp.rpm.githubusers.data.repository
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mobileapp.rpm.githubusers.data.local.RoomData
 import com.mobileapp.rpm.githubusers.data.local.table.UserEntity
 import com.mobileapp.rpm.githubusers.data.remote.RemoteData
