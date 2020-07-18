@@ -31,8 +31,7 @@ import com.mobileapp.rpm.githubusers.model.User
 import com.mobileapp.rpm.githubusers.view.DetailActivity
 import java.util.*
 
-
-class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.RecyclerView.Adapter<UserAdapter.UViewHolder>() {
+class UserAdapter(userList: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UViewHolder>() {
 
     private val users: MutableList<User>
 
@@ -41,13 +40,11 @@ class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.Recy
         this.users.clear()
         this.users.add(0, User("Header"))
         this.users.addAll(userList)
-
     }
 
     companion object {
-        private val HEADER_1 = 0
-        private val USER = 1
-
+        private const val HEADER_1 = 0
+        private const val USER = 1
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UViewHolder {
@@ -65,7 +62,6 @@ class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.Recy
             }
         }
         return UViewHolder(binding as ItemRowHeaderBinding)
-
     }
 
     override fun onBindViewHolder(holder: UserAdapter.UViewHolder, position: Int) {
@@ -79,9 +75,10 @@ class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.Recy
 
                 holder.itemRowUserBinding?.login?.text = user.login
 
-                Glide.with(holder.itemView.context).load(user.avatar_url).preload();
-                Glide.with(holder.itemView.context).load(user.avatar_url).into(holder.itemRowUserBinding?.avatar!!)
-
+                Glide.with(holder.itemView.context).load(user.avatar_url).apply {
+                    preload()
+                    into(holder.itemRowUserBinding?.avatar!!)
+                }
 
                 if (user.site_admin) {
                     holder.itemRowUserBinding?.siteadmin?.visibility = View.VISIBLE
@@ -103,7 +100,7 @@ class UserAdapter(userList: ArrayList<User>) : androidx.recyclerview.widget.Recy
         return users.size
     }
 
-    inner class UViewHolder : androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    inner class UViewHolder : RecyclerView.ViewHolder {
 
         var itemRowUserBinding: ItemRowUserBinding? = null
         var itemRowHeaderBinding: ItemRowHeaderBinding? = null
