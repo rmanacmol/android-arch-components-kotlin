@@ -17,7 +17,6 @@
 package com.mobileapp.rpm.githubusers.view
 
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import android.net.Uri
 import android.os.Bundle
 import androidx.browser.customtabs.CustomTabsIntent
@@ -25,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.mobileapp.rpm.githubusers.R
 import com.mobileapp.rpm.githubusers.viewmodel.DetailViewModel
@@ -39,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         builder = CustomTabsIntent.Builder()
         builder?.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
         customTabsIntent = builder?.build()
@@ -52,7 +52,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    fun populateUserDetail() {
+    private fun populateUserDetail() {
         progress(View.VISIBLE, View.GONE)
         viewModel?.getUserDetail(this.intent.getStringExtra("username"))?.observe(this,
                 Observer { userDetail ->
@@ -69,8 +69,10 @@ class DetailActivity : AppCompatActivity() {
                         blog.text = userDetail.blog
                         tvBio.text = userDetail.bio
 
-                        Glide.with(this).load(userDetail.avatar_url).preload();
-                        Glide.with(this).load(userDetail.avatar_url).into(profile_image)
+                        Glide.with(this).load(userDetail.avatar_url).apply {
+                            preload()
+                            into(profile_image)
+                        }
 
                         blog.setOnClickListener {
                             customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
@@ -86,10 +88,9 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    fun progress(progressView: Int, detailView: Int) {
+    private fun progress(progressView: Int, detailView: Int) {
         progress.visibility = progressView
         lnDetail.visibility = detailView
-
     }
 
 }
