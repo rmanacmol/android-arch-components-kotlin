@@ -1,5 +1,5 @@
 # MVVM ~ Android Architecture Components ~ Kotlin  
---------------------------
+
 [![Build Status](https://app.bitrise.io/app/985aae397f1f36f8/status.svg?token=cJapN1EHpcW_GYNfc-veNA)](https://app.bitrise.io/app/985aae397f1f36f8)
 
 * [Kotlin](https://kotlinlang.org/)
@@ -16,6 +16,7 @@ Other libraries used
 * [OkHttp](http://square.github.io/okhttp/)
 * [Glide](https://github.com/bumptech/glide)
 * [Timber](https://github.com/JakeWharton/timber)
+* [Moshi](https://github.com/square/moshi)
 
 Architecture Components
 --------------------------

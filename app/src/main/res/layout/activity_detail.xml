@@ -75,26 +75,26 @@
                     android:id="@+id/tvBio"
                     style="@style/Subscript_1"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     tools:text="@string/string_bio" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/colorDivider" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:elevation="1dp"
                     android:orientation="horizontal">
 
@@ -113,20 +113,20 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/login"
                             style="@style/Subscript_1"
-                            android:layout_marginEnd="15dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15dp"
                             tools:text="@string/string_mock_name" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/siteadmin"
                             style="@style/Subscript_1"
-                            android:layout_marginEnd="15dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/rounded_corner"
-                            android:paddingEnd="10dp"
                             android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
                             android:text="@string/string_mock_review"
                             android:textColor="@android:color/white"
                             android:visibility="gone" />
@@ -138,9 +138,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
                     android:elevation="1dp"
                     android:orientation="horizontal">
 
@@ -153,9 +153,9 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/location"
                         style="@style/Subscript_1"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
                         tools:text="@string/string_mock_location" />
 
                 </LinearLayout>
@@ -163,9 +163,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
                     android:elevation="1dp"
                     android:orientation="horizontal">
 
@@ -178,9 +178,9 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/blog"
                         style="@style/Subscript_1"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
                         android:textColor="@color/colorAdmin"
                         tools:text="@string/string_mock_blog" />
 
