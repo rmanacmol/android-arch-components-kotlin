@@ -17,12 +17,10 @@
 package com.mobileapp.rpm.githubusers.view
 
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.mobileapp.rpm.githubusers.R
 import com.mobileapp.rpm.githubusers.model.User
 import com.mobileapp.rpm.githubusers.view.adapter.UserAdapter
@@ -36,22 +34,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         populateUser()
         swipeRefreshLayout.setOnRefreshListener { populateUser() }
-
     }
 
-    fun populateUser() {
+    private fun populateUser() {
         swipeRefreshLayout.isRefreshing = true
         viewModel?.getUser()?.observe(this,
                 Observer { userList ->
                     if (userList != null) {
                         viewModel?.addUserToLocal(userList)
-
-                        rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
                         rv.adapter = UserAdapter(userList as ArrayList<User>)
-
                     } else {
                         callDataFromLocal()
                         Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
@@ -61,9 +55,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun callDataFromLocal() {
+    private fun callDataFromLocal() {
         viewModel?.getUserFromLocal()?.observe(this, Observer { userList ->
-            rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this, LinearLayout.VERTICAL, false)
             rv.adapter = UserAdapter(userList as ArrayList<User>)
         })
 

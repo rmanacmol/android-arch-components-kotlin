@@ -52,7 +52,6 @@ class Repository
                 })
         allCompositeDisposable.add(disposable)
         return mutableLiveData
-
     }
 
     override fun getUserDetail(login: String): MutableLiveData<UserDetail> {
@@ -68,7 +67,6 @@ class Repository
                 })
         allCompositeDisposable.add(disposable)
         return mutableLiveData
-
     }
 
     //LOCAL
@@ -97,7 +95,6 @@ class Repository
             ))
         }
         roomData.userDao().insertAll(userList)
-
     }
 
     override fun getUserLocal(): MutableLiveData<List<User>> {
@@ -110,7 +107,6 @@ class Repository
                 }, { t: Throwable? -> t?.printStackTrace() })
         allCompositeDisposable.add(disposable)
         return mutableLiveData
-
     }
 
     private fun transform(users: List<UserEntity>): ArrayList<User> {
@@ -138,7 +134,6 @@ class Repository
                     ))
         }
         return userList
-
     }
 
 }
