@@ -34,7 +34,7 @@ class MainViewModel : BaseViewModel() {
 
     private var liveData: LiveData<List<User>>? = null
 
-    fun getUser(): LiveData<List<User>>? {
+    fun getUser(): LiveData<List<User>> {
         return repository.getUser()
     }
 

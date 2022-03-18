@@ -16,7 +16,6 @@
 
 package com.mobileapp.rpm.githubusers.view
 
-import androidx.lifecycle.Observer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
@@ -41,24 +40,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun populateUser() {
         swipeRefreshLayout.isRefreshing = true
-        viewModel?.getUser()?.observe(this,
-                Observer { userList ->
-                    if (userList != null) {
-                        viewModel?.addUserToLocal(userList)
-                        rv.adapter = UserAdapter(userList as ArrayList<User>)
-                    } else {
-                        callDataFromLocal()
-                        Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
-                    }
-                    swipeRefreshLayout.isRefreshing = false
-                })
+        viewModel?.getUser()?.observe(this) { userList ->
+            if (userList != null) {
+                viewModel?.addUserToLocal(userList)
+                rv.adapter = UserAdapter(userList as ArrayList<User>)
+            } else {
+                callDataFromLocal()
+                Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
+            }
+            swipeRefreshLayout.isRefreshing = false
+        }
 
     }
 
     private fun callDataFromLocal() {
-        viewModel?.getUserFromLocal()?.observe(this, Observer { userList ->
+        viewModel?.getUserFromLocal()?.observe(this) { userList ->
             rv.adapter = UserAdapter(userList as ArrayList<User>)
-        })
-
+        }
     }
 }

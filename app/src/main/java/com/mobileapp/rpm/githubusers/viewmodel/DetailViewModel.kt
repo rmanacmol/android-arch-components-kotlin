@@ -21,7 +21,7 @@ import com.mobileapp.rpm.githubusers.model.UserDetail
 
 class DetailViewModel : BaseViewModel() {
 
-    fun getUserDetail(login: String): LiveData<UserDetail>? {
+    fun getUserDetail(login: String): LiveData<UserDetail> {
         return repository.getUserDetail(login)
     }
 

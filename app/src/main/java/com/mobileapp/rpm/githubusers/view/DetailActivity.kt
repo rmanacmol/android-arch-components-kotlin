@@ -54,38 +54,37 @@ class DetailActivity : AppCompatActivity() {
 
     private fun populateUserDetail() {
         progress(View.VISIBLE, View.GONE)
-        viewModel?.getUserDetail(this.intent.getStringExtra("username"))?.observe(this,
-                Observer { userDetail ->
-
-                    if (userDetail != null) {
-                        if (userDetail.site_admin) {
-                            siteadmin.visibility = View.VISIBLE
-                        } else {
-                            siteadmin.visibility = View.GONE
-                        }
-                        tvName.text = userDetail.name
-                        login.text = userDetail.login
-                        location.text = userDetail.location
-                        blog.text = userDetail.blog
-                        tvBio.text = userDetail.bio
-
-                        Glide.with(this).load(userDetail.avatar_url).apply {
-                            preload()
-                            into(profile_image)
-                        }
-
-                        blog.setOnClickListener {
-                            customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
-                        }
-                        progress(View.GONE, View.VISIBLE)
-
+        this.intent.getStringExtra("username")?.let {
+            viewModel?.getUserDetail(it)?.observe(this) { userDetail ->
+                if (userDetail != null) {
+                    if (userDetail.site_admin) {
+                        siteadmin.visibility = View.VISIBLE
                     } else {
-                        Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
-                        progress(View.GONE, View.GONE)
-                        finish()
+                        siteadmin.visibility = View.GONE
                     }
-                })
+                    tvName.text = userDetail.name
+                    login.text = userDetail.login
+                    location.text = userDetail.location
+                    blog.text = userDetail.blog
+                    tvBio.text = userDetail.bio
 
+                    Glide.with(this).load(userDetail.avatar_url).apply {
+                        preload()
+                        into(profile_image)
+                    }
+
+                    blog.setOnClickListener {
+                        customTabsIntent?.launchUrl(this, Uri.parse(userDetail.blog))
+                    }
+                    progress(View.GONE, View.VISIBLE)
+
+                } else {
+                    Toast.makeText(this, "Failed Fetching Remote Data", Toast.LENGTH_LONG).show()
+                    progress(View.GONE, View.GONE)
+                    finish()
+                }
+            }
+        }
     }
 
     private fun progress(progressView: Int, detailView: Int) {
