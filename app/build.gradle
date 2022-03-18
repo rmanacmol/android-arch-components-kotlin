@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "com.mobileapp.rpm.githubusers"
@@ -16,8 +16,14 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
-    dataBinding {
-        enabled = true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 
     flavorDimensions "default"
@@ -65,9 +71,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0'
-    implementation 'androidx.room:room-runtime:2.2.5'
-    kapt 'androidx.room:room-compiler:2.2.5'
-    implementation 'androidx.room:room-rxjava2:2.2.5'
+    implementation 'androidx.room:room-runtime:2.4.2'
+    kapt 'androidx.room:room-compiler:2.4.2'
+    implementation 'androidx.room:room-rxjava2:2.4.2'
 
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
